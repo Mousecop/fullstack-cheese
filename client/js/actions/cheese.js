@@ -19,7 +19,7 @@ export const fetchCheeseError = (error) => ({
 
 export const fetchCheeses = () => (dispatch) => {
     dispatch(fetchCheeseRequest());
-    fetch('http://localhost:8080/cheeses')
+    fetch('https://fullstack-cheese.herokuapp.com/')
         .then(response => {
             return response.json()
         })
