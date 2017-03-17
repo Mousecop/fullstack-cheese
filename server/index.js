@@ -10,6 +10,17 @@ const app = express();
 
 app.use(express.static(process.env.CLIENT_PATH));
 
+
+app.get('/cheeses', (req, res) => {
+    const cheeses = [
+    "Bath Blue",
+    "Barkham Blue",
+    "Buxton Blue",
+    "Cheshire Blue",
+];
+    res.json(cheeses);
+})
+
 function runServer() {
     return new Promise((resolve, reject) => {
         app.listen(PORT, HOST, (err) => {
