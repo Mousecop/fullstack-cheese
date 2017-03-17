@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Cheese from './cheese';
+
 import * as actions from '../actions/cheese';
 
 export class CheeseList extends React.Component {
@@ -8,7 +8,7 @@ export class CheeseList extends React.Component {
         super(props);
     };
     componentDidMount() {
-        this.props.dispatch(action.fetchCheeses())
+        this.props.dispatch(actions.fetchCheeses())
     }
 
     render() {
