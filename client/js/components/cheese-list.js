@@ -1,11 +1,15 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import Cheese from './cheese';
+import * as actions from '../actions/cheese';
 
-export default class CheeseList extends React.Component {
+export class CheeseList extends React.Component {
     constructor(props) {
         super(props);
     };
+    componentDidMount() {
+        this.props.dispatch(action.fetchCheeses())
+    }
 
     render() {
         const cheeses = this.props.cheeses.map((cheese, i) => {
@@ -20,3 +24,9 @@ export default class CheeseList extends React.Component {
 
 
 };
+
+const mapStateToProps = (state, props) => ({
+    cheeses: state.cheeses
+})
+
+export default connect (mapStateToProps)(CheeseList);
